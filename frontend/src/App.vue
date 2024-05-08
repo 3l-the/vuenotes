@@ -6,7 +6,7 @@
   const allNotes = ref([]);
 
   function getNotes(noteId){
-    axios.get("http://localhost/vuenotes/backend/public/api/v1/notes/" + noteId)
+    axios.get("http://localhost:8000/vuenotes/backend/public/api/v1/notes/" + noteId)
       .then(response=> {
           allNotes.value = response.data;
         }
