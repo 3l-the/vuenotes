@@ -6,7 +6,7 @@
   const allNotes = ref([]);
 
   function getNotes(noteId){
-    axios.get("http://localhost:8000/vuenotes/backend/public/api/v1/notes/" + noteId)
+    axios.get("http://localhost:3306/vuenotes/backend/public/api/notes/" + noteId)
       .then(response=> {
           allNotes.value = response.data;
         }
@@ -33,8 +33,10 @@
           <input type="number" class="form-control" v-model="noteId">
         </div>
 
+        <p>{{ noteId }}</p>
+
         <div class="mb-3 text-end">
-          <button class="btn btn-info" @click="getNotes">Search</button>
+          <button class="btn btn-info" @click="getNotes(noteId)">Search</button>
         </div>
       </div>
     </div>

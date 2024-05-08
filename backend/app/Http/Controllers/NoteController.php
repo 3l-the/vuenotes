@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\Note;
-use Illuminate\Support\Facades\DB;
 class NoteController extends Controller
 {
     /**
@@ -14,11 +14,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        $notes = DB::table('notes')
-        ->select('id','name')
-        ->get();
-        // dd($notes);
-        return view('notes.index', compact('notes'));
+        return Note::select('id', 'name')
+            ->get();
     }
 
     /**
@@ -50,7 +47,7 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        
+        return Note::nota_por_id($id);
     }
 
     /**
