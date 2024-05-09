@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Note;
+use Illuminate\Support\Facades\DB;
+
 class NoteController extends Controller
 {
     /**
@@ -14,8 +16,7 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return Note::select('id', 'name')
-            ->get();
+        return Note::select('id', 'name')->get();
     }
 
     /**

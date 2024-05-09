@@ -13,8 +13,7 @@ class NoteApiController extends Controller
      */
     public function index()
     {
-        return Note::select('id', 'name')
-            ->get();
+        return Note::select('id', 'name')->get();
     }
 
     /**
